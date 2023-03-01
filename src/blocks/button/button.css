@@ -1,0 +1,12 @@
+.button {
+  box-sizing: border-box;
+  background-color: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  transition: opacity .2s;
+  border: none;
+}

@@ -1,0 +1,12 @@
+.button_el_delete {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  width: 18px;
+  height: 19px;
+}
+
+.button_el_delete:hover {
+  opacity: 0.6;
+}
