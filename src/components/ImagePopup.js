@@ -3,7 +3,7 @@ import closeIcon from '../images/close-icon.svg';
 function ImagePopup(props) {
   return (
     <section
-      className={`popup popup_${props.name} ${props.card[0] ? 'popup_opened' : ''}`}
+      className={`popup popup_${props.name} ${props.card.isOpen ? 'popup_opened' : ''}`}
       aria-label="Фотография">
       <div className="popup__container-figure">
         <button
@@ -18,10 +18,10 @@ function ImagePopup(props) {
         <figure className="figure">
           <img
             className="figure__img"
-            src={props.card[1].link}
-            alt={props.card[1].name} />
+            src={props.card.cardData.link}
+            alt={props.card.cardData.name} />
           <figcaption
-            className="figure__caption">{props.card[1].name}
+            className="figure__caption">{props.card.cardData.name}
           </figcaption>
         </figure>
       </div>
