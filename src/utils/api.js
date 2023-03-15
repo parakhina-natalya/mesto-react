@@ -12,7 +12,7 @@ class Api {
     return Promise.reject(new Error('Что-то пошло не так....'));
   }
 
-  uploadingUserInformation() {
+  getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
@@ -26,7 +26,7 @@ class Api {
       .then((res) => this._getResponseData(res));
   }
 
-  updateProfile(name, about) {
+  setUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
@@ -38,7 +38,7 @@ class Api {
       .then((res) => this._getResponseData(res));
   }
 
-  postNewCard(name, link) {
+  postNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
@@ -59,23 +59,16 @@ class Api {
       .then((res) => this._getResponseData(res));
   }
 
-  likeСard(cardId) {
+  changeLikeCardStatus(cardId, changeMethod) {
+    let methodLike = changeMethod ? "PUT" : "DELETE";
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'PUT',
+      method: methodLike,
       headers: this._headers
     })
       .then((res) => this._getResponseData(res));
   }
 
-  deleteLikeСard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: this._headers
-    })
-      .then((res) => this._getResponseData(res));
-  }
-
-  updateAvatar(avatar) {
+  setUserAvatar({ avatar }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
